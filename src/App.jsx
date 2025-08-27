@@ -1,34 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  // variables, studentName (the current value), setStudentName (function to change the value), useState('') (starts with empty text)
+const [studentName, setStudentName] = useState('')
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='p-8'>
+      <h1 className='text-3xl font-bold mb-4'>Grade Tracker</h1>
+
+     {/* Input field to enter student name */}
+     <input
+        type='text'
+        placeholder='Enter student name'
+        value={studentName}
+        onChange={(e) => setStudentName(e.target.value)}
+        className="border border-gray-300 rounded px-3 py-2 mb-4"
+     />
+     {/* Show student name if there is one */}
+     {studentName && (
+      <p className='text-lg'> Hello, {studentName}! 👋</p>
+     )}
+    </div>
   )
 }
 
